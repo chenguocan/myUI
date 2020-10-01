@@ -1,8 +1,6 @@
 <template>
   <button class="my-button" :class="{['i-'+iconPosition]:true}">
-    <svg class="icon" v-if="iconfont">
-      <use :xlink:href="`#i-${iconfont}`"></use>
-    </svg>
+  <Icon class="icon" :iconfont="iconfont"></Icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -60,7 +58,6 @@ export default {
     height: 1em;
     width: 1em;
   }
-
   &:hover {
     border-color: var(--border-color-hover);
   }
