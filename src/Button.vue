@@ -1,31 +1,75 @@
 <template>
-  <button class="my-button">点击</button>
+  <button class="my-button" :class="{['i-'+iconPosition]:true}">
+    <svg class="icon" v-if="iconfont">
+      <use :xlink:href="`#i-${iconfont}`"></use>
+    </svg>
+    <div class="content">
+      <slot></slot>
+    </div>
+  </button>
 </template>
 
 <script lang="js">
 export default {
-name: "Button"
+  name: "Button",
+  props: {
+    iconfont:'',
+    iconPosition:{
+      type:String,
+      default:'left',
+      validator(val){
+        return !(val !== 'left' && val !== 'right');
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.my-button{
+
+.my-button {
   font-size: var(--font-size);
   height: var(--button-height);
-  padding:0 1em;
+  padding: 0 1em;
   border-radius: var(--border-radius);
-  border:1px solid var(--border-color);
+  border: 1px solid var(--border-color);
   background: var(--button-bg);
-  &:hover{
-    border-color:var(--border-color-hover);
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  >.icon{
+    order: 1;
   }
-  &:active{
-    background-color:var(--button-active-bg);
+  >.content{
+    order:2;
+  }
+  &.i-right{
+    >.icon {
+      order: 2;
+    }
+    >.content{
+      order: 1;
+    }
+  }
+  .icon {
+    height: 1em;
+    width: 1em;
+  }
+
+  &:hover {
+    border-color: var(--border-color-hover);
+  }
+
+  &:active {
+    background-color: var(--button-active-bg);
+  }
+  &:focus{
+    outline: none;
   }
 }
 </style>
