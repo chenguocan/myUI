@@ -19,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/chenguocan/myUI/issues"
   },
-  "homepage": "https://github.com/chenguocan/myUI#readme"
+  "homepage": "https://github.com/chenguocan/myUI#readme",
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-hot-reload-api": "^2.3.4"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.2.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.11",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "alias": {
+    "vue" : "./node_modules/vue/dist/vue.common.js"
+  }
 }
