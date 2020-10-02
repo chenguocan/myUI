@@ -9,8 +9,10 @@
 </template>
 
 <script lang="js">
+import Icon from "./Icon";
 export default {
   name: "Button",
+  components:{'my-icon':Icon},
   props: {
     loading:{
       type:Boolean,
