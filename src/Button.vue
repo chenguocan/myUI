@@ -1,7 +1,7 @@
 <template>
   <button class="my-button" :class="{['i-'+iconPosition]:true}" @click="$emit('click')">
     <my-icon class="icon loading" v-if="loading" name="loading"></my-icon>
-    <my-icon class="icon"  v-else :name="iconfont"></my-icon>
+    <my-icon class="icon"  v-if="iconfont && !loading" :name="iconfont"></my-icon>
     <div class="content">
       <slot></slot>
     </div>

@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <title>myUI</title>
     <style>
-        :root{
-            --button-height:32px;
-            --font-size:14px;
-            --button-bg:white;
-            --button-active-bg:#eee;
-            --border-radius:4px;
-            --color:#333;
-            --border-color:#999;
-            --border-color-hover:#666;
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
         }
-        #app{
+
+        #app {
             margin: 20px;
         }
-        body{
+
+        body {
             font-size: var(--font-size);
         }
     </style>
@@ -25,8 +27,13 @@
 <body>
 <div id="app">
     <my-button iconfont="settings" :loading="loading1" @click="loading1=!loading1" icon-position="left">点击</my-button>
-    <my-button iconfont="settings" >点击</my-button>
+    <my-button iconfont="settings">点击</my-button>
     <my-button iconfont="settings" icon-position="right">点击</my-button>
+    <my-button-group>
+        <my-button iconfont="left">上一页</my-button>
+        <my-button>后退</my-button>
+        <my-button iconfont="right" icon-position="right">下一页</my-button>
+    </my-button-group>
 </div>
 <script src="//at.alicdn.com/t/font_2111628_y14wepef99l.js"></script>
 <script src="./src/app.js"></script>
