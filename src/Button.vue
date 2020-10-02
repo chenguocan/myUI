@@ -1,6 +1,7 @@
 <template>
-  <button class="my-button" :class="{['i-'+iconPosition]:true}">
-  <Icon class="icon" :iconfont="iconfont"></Icon>
+  <button class="my-button" :class="{['i-'+iconPosition]:true}" @click="$emit('click')">
+    <my-icon class="icon loading" v-if="loading" name="loading"></my-icon>
+    <my-icon class="icon"  v-else :name="iconfont"></my-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -11,6 +12,10 @@
 export default {
   name: "Button",
   props: {
+    loading:{
+      type:Boolean,
+      default: false,
+    },
     iconfont:'',
     iconPosition:{
       type:String,
@@ -28,6 +33,15 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@keyframes spin {
+  0%{
+    transform:rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
 }
 
 .my-button {
@@ -67,6 +81,9 @@ export default {
   }
   &:focus{
     outline: none;
+  }
+  .loading{
+    animation: spin 1s  infinite linear;
   }
 }
 </style>

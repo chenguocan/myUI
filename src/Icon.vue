@@ -1,13 +1,13 @@
 <template>
-    <svg class="icon" v-if="iconfont">
-      <use :xlink:href="`#i-${iconfont}`"></use>
+    <svg  v-if="name">
+      <use :xlink:href="`#i-${name}`"></use>
     </svg>
 </template>
 
 <script lang="ts">
 export default {
   name: 'Icon',
-  props: ['iconfont'],
+  props: ['name'],
 };
 </script>
 
